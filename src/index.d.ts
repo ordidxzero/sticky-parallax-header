@@ -1,3 +1,4 @@
+import { number } from 'prop-types';
 import { ReactElement, Component } from 'react';
 import {
   ImageSourcePropType,
@@ -133,3 +134,10 @@ type StickyParallaxHeaderProps = HeaderTypeProp &
   (DetailsHeaderProps | AvatarHeaderProps | TabbedHeaderProps | CustomHeaderProps);
 
 export default class StickyParallaxHeader extends Component<StickyParallaxHeaderProps, any> {}
+
+export class Constants {
+  TABBED_HEADER_HEIGHT: number;
+  TABBED_HEADER_IPHONE_X_HEIGHT: number;
+  START_TABBED_HEADER_TITLE_FADE: number;
+  FINISH_TABBED_HEADER_TITLE_FADE: number;
+}
