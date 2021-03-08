@@ -69,6 +69,7 @@ export type TabbedHeaderProps = SharedProps &
     logoContainerStyle?: ViewStyle;
     logoResizeMode?: ImageResizeMode;
     logoStyle?: ViewStyle;
+    parallaxHeight?: number;
     rememberTabScrollPosition?: boolean;
     renderBody?: (title: string) => ReactElement;
     scrollEvent?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;

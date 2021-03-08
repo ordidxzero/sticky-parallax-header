@@ -55,7 +55,7 @@ export default class TabbedHeader extends React.Component {
   };
 
   renderForeground = (scrollY) => {
-    const { title, titleStyle, foregroundImage } = this.props;
+    const { title, titleStyle, foregroundImage, children } = this.props;
     const messageStyle = titleStyle || styles.message;
     const startSize = constants.responsiveWidth(18);
     const endSize = constants.responsiveWidth(10);
@@ -102,6 +102,7 @@ export default class TabbedHeader extends React.Component {
     return (
       <View style={styles.foreground}>
         {renderImage()}
+        {children}
         <Animated.View style={[styles.messageContainer, { opacity: titleOpacity }]}>
           <Text style={messageStyle}>{title}</Text>
         </Animated.View>
@@ -143,7 +144,9 @@ export default class TabbedHeader extends React.Component {
   render() {
     const {
       tabs,
+      title,
       headerHeight,
+      parallaxHeight,
       backgroundColor,
       backgroundImage,
       bounces,
@@ -166,7 +169,7 @@ export default class TabbedHeader extends React.Component {
           foreground={this.renderForeground(this.scrollY)}
           header={this.renderHeader()}
           deviceWidth={constants.deviceWidth}
-          parallaxHeight={sizes.homeScreenParallaxHeader}
+          parallaxHeight={parallaxHeight}
           scrollEvent={event([{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }], {
             useNativeDriver: false,
             listener: (e) => scrollEvent && scrollEvent(e),
@@ -185,7 +188,7 @@ export default class TabbedHeader extends React.Component {
           snapToEdge={snapToEdge}
           tabsContainerStyle={tabsContainerStyle}
           onRef={onRef}>
-          {renderBody('Popular Quizes')}
+          {renderBody(title)}
         </StickyParallaxHeader>
       </>
     );
@@ -195,6 +198,7 @@ export default class TabbedHeader extends React.Component {
 TabbedHeader.propTypes = {
   backgroundColor: string,
   headerHeight: number,
+  parallaxHeight: number,
   backgroundImage: Image.propTypes.source,
   title: string,
   bounces: bool,
@@ -221,6 +225,7 @@ TabbedHeader.propTypes = {
 TabbedHeader.defaultProps = {
   backgroundColor: colors.primaryGreen,
   headerHeight: sizes.headerHeight,
+  parallaxHeight: sizes.homeScreenParallaxHeader,
   backgroundImage: null,
   title: "Mornin' Mark! \nReady for a quiz?",
   bounces: true,

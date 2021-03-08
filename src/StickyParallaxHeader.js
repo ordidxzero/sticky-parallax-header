@@ -427,7 +427,6 @@ class StickyParallaxHeader extends Component {
             minScrollHeight={innerScrollHeight}
             scrollEnabled={!hasSingleElement}
             keyboardShouldPersistTaps={keyboardShouldPersistTaps}>
-            {!tabs && children}
             {tabs &&
               tabs.map((item) => (
                 <View
