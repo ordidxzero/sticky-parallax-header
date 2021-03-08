@@ -22,11 +22,11 @@ const index = (props) => {
   }
 };
 
-export default index;
-
-export {
+export const constants = {
   TABBED_HEADER_HEIGHT,
   TABBED_HEADER_IPHONE_X_HEIGHT,
   START_TABBED_HEADER_TITLE_FADE,
   FINISH_TABBED_HEADER_TITLE_FADE,
 };
+
+export default index;
