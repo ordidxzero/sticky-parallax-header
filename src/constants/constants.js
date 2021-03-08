@@ -1,4 +1,5 @@
 import { Dimensions, PixelRatio, Platform } from 'react-native';
+import { ifIphoneX } from '../utils';
 
 const { height, width } = Dimensions.get('window');
 
@@ -47,12 +48,13 @@ const normalizedFontSize = (basicFontSize) => {
 
 const scrollPosition = (scrollHeight, x) => x * 0.01 * scrollHeight;
 
+const getScrollPosition = (x) =>
+  scrollPosition(ifIphoneX(TABBED_HEADER_IPHONE_X_HEIGHT, TABBED_HEADER_HEIGHT), x);
+
 export const TABBED_HEADER_IPHONE_X_HEIGHT = 92;
-
 export const TABBED_HEADER_HEIGHT = responsiveHeight(13);
-
-export const START_TABBED_HEADER_TITLE_FADE = scrollPosition(25);
-export const FINISH_TABBED_HEADER_TITLE_FADE = scrollPosition(45);
+export const START_TABBED_HEADER_TITLE_FADE = getScrollPosition(25);
+export const FINISH_TABBED_HEADER_TITLE_FADE = getScrollPosition(45);
 
 export default {
   getResponsiveFontSize,

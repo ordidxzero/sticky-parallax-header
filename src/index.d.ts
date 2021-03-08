@@ -134,7 +134,11 @@ type StickyParallaxHeaderProps = HeaderTypeProp &
 
 export default class StickyParallaxHeader extends Component<StickyParallaxHeaderProps, any> {}
 
-export const TABBED_HEADER_HEIGHT: number;
-export const TABBED_HEADER_IPHONE_X_HEIGHT: number;
-export const START_TABBED_HEADER_TITLE_FADE: number;
-export const FINISH_TABBED_HEADER_TITLE_FADE: number;
+type Constants = {
+  START_TABBED_HEADER_TITLE_FADE: number;
+  FINISH_TABBED_HEADER_TITLE_FADE: number;
+  TABBED_HEADER_IPHONE_X_HEIGHT: number;
+  TABBED_HEADER_HEIGHT: number;
+};
+
+export function getConstants(): Constants;

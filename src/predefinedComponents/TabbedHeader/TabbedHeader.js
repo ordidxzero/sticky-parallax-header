@@ -2,7 +2,13 @@ import React from 'react';
 import { Text, View, Image, StatusBar, Animated, ViewPropTypes } from 'react-native';
 import { arrayOf, bool, number, shape, string, func } from 'prop-types';
 import StickyParallaxHeader from '../../index';
-import { constants, colors, sizes } from '../../constants';
+import {
+  constants,
+  colors,
+  sizes,
+  START_TABBED_HEADER_TITLE_FADE,
+  FINISH_TABBED_HEADER_TITLE_FADE,
+} from '../../constants';
 import styles from './TabbedHeader.styles';
 import RenderContent from './defaultProps/defaultProps';
 import {
