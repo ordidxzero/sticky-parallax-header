@@ -11,10 +11,6 @@ import {
 } from '../../constants';
 import styles from './TabbedHeader.styles';
 import RenderContent from './defaultProps/defaultProps';
-import {
-  FINISH_TABBED_HEADER_TITLE_FADE,
-  START_TABBED_HEADER_TITLE_FADE,
-} from '../../constants/constants';
 
 const { event, ValueXY } = Animated;
 export default class TabbedHeader extends React.Component {
