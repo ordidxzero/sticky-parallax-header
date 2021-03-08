@@ -5,6 +5,10 @@ import StickyParallaxHeader from '../../index';
 import { constants, colors, sizes } from '../../constants';
 import styles from './TabbedHeader.styles';
 import RenderContent from './defaultProps/defaultProps';
+import {
+  FINISH_TABBED_HEADER_TITLE_FADE,
+  START_TABBED_HEADER_TITLE_FADE,
+} from '../../constants/constants';
 
 const { event, ValueXY } = Animated;
 export default class TabbedHeader extends React.Component {
@@ -61,7 +65,10 @@ export default class TabbedHeader extends React.Component {
     const endSize = constants.responsiveWidth(10);
     const [startImgFade, finishImgFade] = [this.scrollPosition(22), this.scrollPosition(27)];
     const [startImgSize, finishImgSize] = [this.scrollPosition(20), this.scrollPosition(30)];
-    const [startTitleFade, finishTitleFade] = [this.scrollPosition(25), this.scrollPosition(45)];
+    const [startTitleFade, finishTitleFade] = [
+      START_TABBED_HEADER_TITLE_FADE,
+      FINISH_TABBED_HEADER_TITLE_FADE,
+    ];
 
     const imageOpacity = scrollY.y.interpolate({
       inputRange: [0, startImgFade, finishImgFade],

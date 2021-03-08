@@ -1,10 +1,10 @@
 import { Platform } from 'react-native';
 import { ifIphoneX } from '../utils';
-import constants from './constants';
+import constants, { TABBED_HEADER_IPHONE_X_HEIGHT, TABBED_HEADER_HEIGHT } from './constants';
 
 export default {
   toolbarHeight: 100,
-  headerHeight: ifIphoneX(92, constants.responsiveHeight(13)),
+  headerHeight: ifIphoneX(TABBED_HEADER_IPHONE_X_HEIGHT, TABBED_HEADER_HEIGHT),
   cardScreenHeaderHeight: Platform.select({ ios: ifIphoneX(95, 85), android: 100 }),
   userModalHeaderHeight: ifIphoneX(100, 75),
   homeScreenParallaxHeader: ifIphoneX(

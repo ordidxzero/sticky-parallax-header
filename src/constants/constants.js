@@ -47,6 +47,13 @@ const normalizedFontSize = (basicFontSize) => {
 
 const scrollPosition = (scrollHeight, x) => x * 0.01 * scrollHeight;
 
+export const TABBED_HEADER_IPHONE_X_HEIGHT = 92;
+
+export const TABBED_HEADER_HEIGHT = responsiveHeight(13);
+
+export const START_TABBED_HEADER_TITLE_FADE = scrollPosition(25);
+export const FINISH_TABBED_HEADER_TITLE_FADE = scrollPosition(45);
+
 export default {
   getResponsiveFontSize,
   normalizedFontSize,
