@@ -11,6 +11,8 @@
     "lint": "eslint .",
     "prepush": "yarn test && yarn lint",
     "release": "release-it",
+    "prepublish": "git commit -am 'Fix bug'",
+    "publish": "npm version patch && npm publish",
     "test": "jest"
   },
   "dependencies": {
