@@ -1,6 +1,6 @@
 {
   "name": "rn-custom-sticky-parallax-header",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "source": "src/index",
