@@ -178,6 +178,7 @@ TabbedHeader.propTypes = {
   backgroundColor: string,
   headerHeight: number,
   parallaxHeight: number,
+  getForegroundHeight: func,
   backgroundImage: Image.propTypes.source,
   title: string,
   bounces: bool,
