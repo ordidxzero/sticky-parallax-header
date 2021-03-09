@@ -70,7 +70,7 @@ export type TabbedHeaderProps = SharedProps &
     logoStyle?: ViewStyle;
     parallaxHeight?: number;
     getForegroundHeight?: (height: number) => void;
-    getCurrentPage: (currentPage: number) => void;
+    getCurrentPage?: (currentPage: number) => void;
     rememberTabScrollPosition?: boolean;
     renderBody?: (title: string) => ReactElement;
     scrollEvent?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
