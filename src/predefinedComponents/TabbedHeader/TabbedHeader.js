@@ -55,14 +55,14 @@ export default class TabbedHeader extends React.Component {
   };
 
   renderHeader = () => {
-    const { header, getForegroundHeight } = this.props;
+    const { header } = this.props;
     const renderHeader = header || this.renderLogoHeader;
 
     return renderHeader();
   };
 
   renderForeground = (scrollY) => {
-    const { title, titleStyle, children } = this.props;
+    const { title, titleStyle, children, getForegroundHeight } = this.props;
     const messageStyle = titleStyle || styles.message;
     const [startTitleFade, finishTitleFade] = [
       START_TABBED_HEADER_TITLE_FADE,
