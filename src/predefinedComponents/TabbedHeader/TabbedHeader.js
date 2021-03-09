@@ -125,6 +125,7 @@ export default class TabbedHeader extends React.Component {
       tabs,
       title,
       headerHeight,
+      getCurrentPage,
       parallaxHeight,
       backgroundColor,
       backgroundImage,
@@ -156,6 +157,7 @@ export default class TabbedHeader extends React.Component {
           headerSize={this.setHeaderSize}
           headerHeight={headerHeight}
           tabs={tabs}
+          getCurrentPage={getCurrentPage}
           tabTextStyle={tabTextStyle}
           tabTextActiveStyle={tabTextActiveStyle}
           tabTextContainerStyle={tabTextContainerStyle}
@@ -179,6 +181,7 @@ TabbedHeader.propTypes = {
   headerHeight: number,
   parallaxHeight: number,
   getForegroundHeight: func,
+  getCurrentPage: func,
   backgroundImage: Image.propTypes.source,
   title: string,
   bounces: bool,

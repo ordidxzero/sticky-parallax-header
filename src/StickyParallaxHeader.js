@@ -178,12 +178,16 @@ class StickyParallaxHeader extends Component {
   };
 
   goToPage = (pageNumber) => {
+    const { getCurrentPage } = this.props;
     const { containerWidth, currentPage } = this.state;
     const offset = pageNumber * containerWidth;
     if (currentPage !== pageNumber) {
-      this.setState({
-        currentPage: pageNumber,
-      });
+      this.setState(
+        {
+          currentPage: pageNumber,
+        },
+        () => getCurrentPage && getCurrentPage(this.state.currentPage)
+      );
     }
     if (this.scrollView) {
       this.scrollView.scrollTo({
@@ -460,6 +464,7 @@ StickyParallaxHeader.propTypes = {
   initialPage: number,
   onChangeTab: func,
   onEndReached: func,
+  getCurrentPage: func,
   parallaxHeight: number,
   rememberTabScrollPosition: bool,
   scrollEvent: func,
