@@ -5,6 +5,7 @@ import {
   TABBED_HEADER_IPHONE_X_HEIGHT,
   START_TABBED_HEADER_TITLE_FADE,
   FINISH_TABBED_HEADER_TITLE_FADE,
+  DEFAULT_PARALLAX_HEIGHT,
 } from './constants';
 import StickyParallaxHeader from './StickyParallaxHeader';
 
@@ -27,6 +28,7 @@ export const getConstants = () => ({
   TABBED_HEADER_HEIGHT,
   START_TABBED_HEADER_TITLE_FADE,
   FINISH_TABBED_HEADER_TITLE_FADE,
+  DEFAULT_PARALLAX_HEIGHT,
 });
 
 export default index;

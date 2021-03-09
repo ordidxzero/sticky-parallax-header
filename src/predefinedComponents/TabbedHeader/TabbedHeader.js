@@ -19,6 +19,7 @@ export default class TabbedHeader extends React.Component {
 
     this.state = {
       contentHeight: {},
+      foregroundHeight: 0,
       headerLayout: {
         height: 0,
       },
@@ -54,65 +55,34 @@ export default class TabbedHeader extends React.Component {
   };
 
   renderHeader = () => {
-    const { header } = this.props;
+    const { header, getForegroundHeight } = this.props;
     const renderHeader = header || this.renderLogoHeader;
 
     return renderHeader();
   };
 
   renderForeground = (scrollY) => {
-    const { title, titleStyle, foregroundImage, children } = this.props;
+    const { title, titleStyle, children } = this.props;
     const messageStyle = titleStyle || styles.message;
-    const startSize = constants.responsiveWidth(18);
-    const endSize = constants.responsiveWidth(10);
-    const [startImgFade, finishImgFade] = [this.scrollPosition(22), this.scrollPosition(27)];
-    const [startImgSize, finishImgSize] = [this.scrollPosition(20), this.scrollPosition(30)];
     const [startTitleFade, finishTitleFade] = [
       START_TABBED_HEADER_TITLE_FADE,
       FINISH_TABBED_HEADER_TITLE_FADE,
     ];
 
-    const imageOpacity = scrollY.y.interpolate({
-      inputRange: [0, startImgFade, finishImgFade],
-      outputRange: [1, 1, 0],
-      extrapolate: 'clamp',
-    });
-    const imageSize = scrollY.y.interpolate({
-      inputRange: [0, startImgSize, finishImgSize],
-      outputRange: [startSize, startSize, endSize],
-      extrapolate: 'clamp',
-    });
     const titleOpacity = scrollY.y.interpolate({
       inputRange: [0, startTitleFade, finishTitleFade],
       outputRange: [1, 1, 0],
       extrapolate: 'clamp',
     });
 
-    const renderImage = () => {
-      const logo =
-        foregroundImage === undefined
-          ? require('../../assets/images/photosPortraitMe.png')
-          : foregroundImage;
-
-      if (foregroundImage !== null) {
-        return (
-          <Animated.View style={{ opacity: imageOpacity }}>
-            <Animated.Image
-              source={logo}
-              style={[styles.profilePic, { width: imageSize, height: imageSize }]}
-            />
-          </Animated.View>
-        );
-      }
-
-      return null;
-    };
-
     return (
-      <View style={styles.foreground}>
-        {renderImage()}
+      <View
+        style={styles.foreground}
+        onLayout={({ nativeEvent: { layout } }) => getForegroundHeight(layout.height)}>
         {children}
-        <Animated.View style={[styles.messageContainer, { opacity: titleOpacity }]}>
+        <Animated.View
+          style={[styles.messageContainer, { opacity: titleOpacity }]}
+          onLayout={({ nativeEvent: { layout } }) => getForegroundHeight(layout.height)}>
           <Text style={messageStyle}>{title}</Text>
         </Animated.View>
       </View>

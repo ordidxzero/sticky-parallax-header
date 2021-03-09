@@ -53,8 +53,9 @@ const getScrollPosition = (x) =>
 
 export const TABBED_HEADER_IPHONE_X_HEIGHT = 92;
 export const TABBED_HEADER_HEIGHT = responsiveHeight(13);
-export const START_TABBED_HEADER_TITLE_FADE = getScrollPosition(25);
-export const FINISH_TABBED_HEADER_TITLE_FADE = getScrollPosition(45);
+export const START_TABBED_HEADER_TITLE_FADE = getScrollPosition(60);
+export const FINISH_TABBED_HEADER_TITLE_FADE = getScrollPosition(80);
+export const DEFAULT_PARALLAX_HEIGHT = ifIphoneX(responsiveHeight(38), responsiveHeight(48));
 
 export default {
   getResponsiveFontSize,

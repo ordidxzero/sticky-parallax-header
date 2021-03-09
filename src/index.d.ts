@@ -1,4 +1,4 @@
-import { ReactElement, Component } from 'react';
+import React, { ReactElement, Component } from 'react';
 import {
   ImageSourcePropType,
   ScrollView,
@@ -63,13 +63,13 @@ export type TabbedHeaderProps = SharedProps &
   TabsSharedProps & {
     headerType: 'TabbedHeader';
     backgroundColor?: string;
-    foregroundImage?: ImageSourcePropType;
     header?: () => ReactElement;
     logo?: ImageSourcePropType;
     logoContainerStyle?: ViewStyle;
     logoResizeMode?: ImageResizeMode;
     logoStyle?: ViewStyle;
     parallaxHeight?: number;
+    getForegroundHeight?: (height: number) => void;
     rememberTabScrollPosition?: boolean;
     renderBody?: (title: string) => ReactElement;
     scrollEvent?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
@@ -139,6 +139,7 @@ type Constants = {
   FINISH_TABBED_HEADER_TITLE_FADE: number;
   TABBED_HEADER_IPHONE_X_HEIGHT: number;
   TABBED_HEADER_HEIGHT: number;
+  DEFAULT_PARALLAX_HEIGHT: number;
 };
 
 export function getConstants(): Constants;
