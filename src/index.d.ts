@@ -55,7 +55,7 @@ export interface TabsSharedProps {
   tabTextContainerStyle?: ViewStyle;
   tabTextStyle?: TextStyle;
   tabWrapperStyle?: ViewStyle;
-  tabs?: Tab[];
+  tabs?: (Tab | boolean)[];
   tabsContainerStyle?: ViewStyle;
 }
 

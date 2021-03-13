@@ -432,17 +432,19 @@ class StickyParallaxHeader extends Component {
             scrollEnabled={!hasSingleElement}
             keyboardShouldPersistTaps={keyboardShouldPersistTaps}>
             {tabs &&
-              tabs.map((item) => (
-                <View
-                  tabLabel={item.title}
-                  key={item.title}
-                  onLayout={this.setContentHeight}
-                  ref={(c) => {
-                    this.tab = c;
-                  }}>
-                  {item.content}
-                </View>
-              ))}
+              tabs
+                .filter((item) => typeof item !== 'boolean')
+                .map((item) => (
+                  <View
+                    tabLabel={item.title}
+                    key={item.title}
+                    onLayout={this.setContentHeight}
+                    ref={(c) => {
+                      this.tab = c;
+                    }}>
+                    {item.content}
+                  </View>
+                ))}
           </ScrollableTabView>
         </AnimatedScrollView>
       </View>

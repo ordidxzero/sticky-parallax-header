@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image, StatusBar, Animated, ViewPropTypes } from 'react-native';
-import { arrayOf, bool, number, shape, string, func } from 'prop-types';
+import { arrayOf, bool, number, shape, string, func, oneOfType } from 'prop-types';
 import StickyParallaxHeader from '../../index';
 import {
   constants,
@@ -186,7 +186,7 @@ TabbedHeader.propTypes = {
   title: string,
   bounces: bool,
   snapToEdge: bool,
-  tabs: arrayOf(shape({})),
+  tabs: arrayOf(oneOfType([shape({}), bool])),
   renderBody: func,
   logo: Image.propTypes.source,
   logoResizeMode: string,
